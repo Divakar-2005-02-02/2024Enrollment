@@ -16,7 +16,7 @@ const StaffSubjects = () => {
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/staff/${staffId}/subjects`);
+        const response = await axios.get(`https://studentenroll.duckdns.org/staff/${staffId}/subjects`);
         console.log('Subjects Response:', response.data);
 
         if (response.data && Array.isArray(response.data)) {
@@ -39,7 +39,7 @@ const StaffSubjects = () => {
       const fetchStudents = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:8080/enroll/${staffId}/subject/${selectedSubjectId}/students`
+            `https://studentenroll.duckdns.org/enroll/${staffId}/subject/${selectedSubjectId}/students`
           );
           console.log('Students Response:', response.data);
 

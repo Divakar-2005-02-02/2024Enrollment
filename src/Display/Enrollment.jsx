@@ -9,7 +9,7 @@ function Enrollment() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const baseUrl = 'http://localhost:8080';
+  const baseUrl = 'https://studentenroll.duckdns.org';
 
   useEffect(() => {
     setLoading(true);
