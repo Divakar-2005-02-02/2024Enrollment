@@ -21,7 +21,7 @@ const Login = () => {
     };
 
     try {
-      const response = await axios.post('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/login', loginData);
+      const response = await axios.post('https://studentenroll.duckdns.org/admin/login', loginData);
       if (response.status === 200) {
         setSuccess('Login successful');
         setError('');
