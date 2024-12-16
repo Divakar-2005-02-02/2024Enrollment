@@ -15,7 +15,7 @@ const EnrolledSubjects = () => {
 
     const fetchEnrolledSubjects = async () => {
       try {
-        const enrolledResponse = await axios.get('https://studentenroll.duckdns.org/enroll/get-id', {
+        const enrolledResponse = await axios.get('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/enroll/get-id', {
           params: { studentId },
         });
 
@@ -27,7 +27,7 @@ const EnrolledSubjects = () => {
         const subjectStaffPromises = enrolledResponse.data.map(async (enrollment) => {
           const { subjectId, staffId } = enrollment;
           try {
-            const subjectStaffResponse = await axios.get('https://studentenroll.duckdns.org/enroll/get-subject-staff', {
+            const subjectStaffResponse = await axios.get('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/enroll/get-subject-staff', {
               params: { subjectId, staffId },
             });
             return subjectStaffResponse.data;

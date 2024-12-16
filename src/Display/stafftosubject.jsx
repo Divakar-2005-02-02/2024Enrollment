@@ -14,10 +14,10 @@ const AssignSubjectStaff = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const subjectResponse = await axios.get('https://studentenroll.duckdns.org/admin/sub'); // URL to fetch subjects
+        const subjectResponse = await axios.get('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/sub'); // URL to fetch subjects
         setSubjects(subjectResponse.data);
 
-        const staffResponse = await axios.get('https://studentenroll.duckdns.org/staff/disp-staff'); // URL to fetch staff
+        const staffResponse = await axios.get('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/staff/disp-staff'); // URL to fetch staff
         setStaff(staffResponse.data);
 
       } catch (error) {
@@ -41,7 +41,7 @@ const AssignSubjectStaff = () => {
       staffIds: selectedStaff,
     };
     try {
-      await axios.post('https://studentenroll.duckdns.org/admin/assign-subject', assignmentData);
+      await axios.post('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/assign-subject', assignmentData);
       alert('Subject assigned to staff successfully!');
       setSelectedSubject('');
       setSelectedStaff([]);

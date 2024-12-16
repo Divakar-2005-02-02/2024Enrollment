@@ -77,7 +77,7 @@ const StaffManagement = () => {
 
   const fetchStaff = async () => {
     try {
-      const response = await axios.get('https://studentenroll.duckdns.org/staff/disp-staff');
+      const response = await axios.get('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/staff/disp-staff');
       setStaff(response.data);
     } catch (error) {
       console.error('Error fetching staff:', error);
@@ -98,7 +98,7 @@ const StaffManagement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://studentenroll.duckdns.org/admin/add-staff', formData);
+      const response = await axios.post('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/add-staff', formData);
       setSuccessMessage('Staff added successfully');
       setError('');
       setShowForm(false);
@@ -114,7 +114,7 @@ const StaffManagement = () => {
     const confirmed = window.confirm(`Are you sure you want to delete the staff with ID: ${id}?`);
     if (confirmed) {
       try {
-        await axios.delete(`https://studentenroll.duckdns.org/admin/remove-staff/${id}`);
+        await axios.delete(`https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/remove-staff/${id}`);
         setStaff((prevStaff) => prevStaff.filter((staffMember) => staffMember.id !== id));
         setSuccessMessage('Staff deleted successfully');
       } catch (error) {

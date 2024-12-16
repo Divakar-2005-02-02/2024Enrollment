@@ -14,10 +14,10 @@ const StaffLogin = () => {
     setLoading(true);
 
     try {
-      const loginResponse = await axios.post('https://studentenroll.duckdns.org/admin/staff/login', { email, password });
+      const loginResponse = await axios.post('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/staff/login', { email, password });
 
       if (loginResponse.status === 200) {
-        const response = await axios.get(`https://studentenroll.duckdns.org/staff/get-id/${email}`);
+        const response = await axios.get(`https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/staff/get-id/${email}`);
         const staffId = response.data;
         navigate(`/staff/${staffId}/subjects`);
       }
