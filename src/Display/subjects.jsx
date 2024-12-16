@@ -83,7 +83,7 @@ const SubjectsTableAndAddForm = () => {
 
   const fetchSubjects = async () => {
     try {
-      const response = await axios.get("https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/sub");
+      const response = await axios.get("https://studentenroll.duckdns.org/admin/sub");
       setSubjects(response.data);
     } catch (error) {
       console.error("Error fetching subjects:", error);
@@ -96,7 +96,7 @@ const SubjectsTableAndAddForm = () => {
   const deleteSubject = async (id) => {
     try {
       const response = await axios.delete(
-        `https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/delete-subject/${id}`
+        `https://studentenroll.duckdns.org/admin/delete-subject/${id}`
       );
       if (response.status === 200) {
         setSubjects(subjects.filter((subject) => subject.id !== id));
@@ -122,7 +122,7 @@ const SubjectsTableAndAddForm = () => {
 
     try {
       const response = await axios.post(
-        "https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/add-subject",
+        "https://studentenroll.duckdns.org/admin/add-subject",
         subjectData,
         {
           headers: {

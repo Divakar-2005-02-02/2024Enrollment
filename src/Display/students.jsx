@@ -28,7 +28,7 @@ const StudentsManagement = () => {
   const fetchStudents = async () => {
     try {
       const response = await axios.get(
-        "https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/display-students"
+        "https://studentenroll.duckdns.org/admin/display-students"
       );
       setStudents(response.data);
       setFilteredStudents(response.data);
@@ -84,7 +84,7 @@ const StudentsManagement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/add-student", formData);
+      await axios.post("https://studentenroll.duckdns.org/admin/add-student", formData);
       setSuccessMessage("Student added successfully");
       setError("");
       setShowForm(false);
@@ -113,7 +113,7 @@ const StudentsManagement = () => {
     if (confirmed) {
       try {
         await axios.delete(
-          `https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/delete-student/${rollNumber}`
+          `https://studentenroll.duckdns.org/admin/delete-student/${rollNumber}`
         );
         setStudents(students.filter((student) => student.rollNumber !== rollNumber));
       } catch (error) {
@@ -136,7 +136,7 @@ const StudentsManagement = () => {
       formData.append("file", file);
 
       try {
-        await axios.post("https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/upload-excel", formData);
+        await axios.post("https://studentenroll.duckdns.org/admin/upload-excel", formData);
         fetchStudents();
         setSuccessMessage("File uploaded successfully");
         setError("");

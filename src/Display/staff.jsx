@@ -114,7 +114,7 @@ const StaffManagement = () => {
     const confirmed = window.confirm(`Are you sure you want to delete the staff with ID: ${id}?`);
     if (confirmed) {
       try {
-        await axios.delete(`https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/remove-staff/${id}`);
+        await axios.delete(`https://studentenroll.duckdns.org/admin/remove-staff/${id}`);
         setStaff((prevStaff) => prevStaff.filter((staffMember) => staffMember.id !== id));
         setSuccessMessage('Staff deleted successfully');
       } catch (error) {

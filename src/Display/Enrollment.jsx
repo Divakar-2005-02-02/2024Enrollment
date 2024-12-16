@@ -9,7 +9,7 @@ function Enrollment() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const baseUrl = 'https://backendlb-1761842273.eu-north-1.elb.amazonaws.com';
+  const baseUrl = 'https://studentenroll.duckdns.org';
 
   useEffect(() => {
     setLoading(true);
