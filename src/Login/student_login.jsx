@@ -22,14 +22,14 @@ const StudentLogin = () => {
 
     try {
       const response = await axios.post(
-        'https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/student/login',
+        'https://studentenroll.duckdns.org/admin/student/login',
         loginData
       );
 
       if (response.status === 200) {
         const { semester: studentSemester } = response.data;
 
-        const statusResponse = await axios.get('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/enrollment/status');
+        const statusResponse = await axios.get('https://studentenroll.duckdns.org/enrollment/status');
 
         if (statusResponse.status === 200) {
           const { semester: statusSemester } = statusResponse.data;
