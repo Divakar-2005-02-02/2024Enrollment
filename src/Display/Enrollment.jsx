@@ -9,7 +9,7 @@ function Enrollment() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const baseUrl = 'https://studentenroll.duckdns.org';
+  const baseUrl = 'https://www.2024enrollmentit.kesug.com';
 
   useEffect(() => {
     setLoading(true);

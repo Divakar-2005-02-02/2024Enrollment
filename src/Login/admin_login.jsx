@@ -21,7 +21,7 @@ const Login = () => {
     };
 
     try {
-      const response = await axios.post('https://studentenroll.duckdns.org/admin/login', loginData);
+      const response = await axios.post('https://www.2024enrollmentit.kesug.com/admin/login', loginData);
       if (response.status === 200) {
         setSuccess('Login successful');
         setError('');

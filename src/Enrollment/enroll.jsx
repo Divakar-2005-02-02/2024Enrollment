@@ -16,17 +16,17 @@ const EnrollmentPage = () => {
     const fetchStudentDetails = async () => {
       try {
         const response = await axios.get(
-          `https://backendlb-878688743.eu-north-1.elb.amazonaws.com/students/get-student/${rollNumber}`
+          `https://www.2024enrollmentit.kesug.com/students/get-student/${rollNumber}`
         );
         setStudentDetails(response.data);
         setStudentId(response.data.id);
         const subjectsResponse = await axios.get(
-          `https://backendlb-878688743.eu-north-1.elb.amazonaws.com/admin/get-sub?year=${response.data.yearOfStudy}&semester=${response.data.semester}`
+          `https://www.2024enrollmentit.kesug.com/admin/get-sub?year=${response.data.yearOfStudy}&semester=${response.data.semester}`
         );
         setSubjectStaffDetails(subjectsResponse.data);
 
         const enrolledResponse = await axios.get(
-          `https://backendlb-878688743.eu-north-1.elb.amazonaws.com/enroll/get-enrolled-subjects1/${response.data.id}`
+          `https://www.2024enrollmentit.kesug.com/enroll/get-enrolled-subjects1/${response.data.id}`
         );
         const enrolledIds = new Set(enrolledResponse.data);
         setEnrolledSubjects(enrolledIds);
@@ -85,7 +85,7 @@ const EnrollmentPage = () => {
 
     try {
       const enrollmentData = { studentId, subjectId, staffId };
-      const response = await axios.post(`https://backendlb-878688743.eu-north-1.elb.amazonaws.com/enroll/subjects`, enrollmentData);
+      const response = await axios.post(`https://www.2024enrollmentit.kesug.com/enroll/subjects`, enrollmentData);
 
       setEnrolledSubjects(new Set(enrolledSubjects.add(subjectId)));
       handleShowAlert(response.data);
@@ -104,7 +104,7 @@ const EnrollmentPage = () => {
 
     try {
       const response = await axios.delete(
-        `https://backendlb-878688743.eu-north-1.elb.amazonaws.com/enroll/remove-subject/${studentId}/${subjectId}`
+        `https://www.2024enrollmentit.kesug.com/enroll/remove-subject/${studentId}/${subjectId}`
       );
 
       setEnrolledSubjects((prev) => {

@@ -28,7 +28,7 @@ const StudentsManagement = () => {
   const fetchStudents = async () => {
     try {
       const response = await axios.get(
-        "https://studentenroll.duckdns.org/admin/display-students"
+        "https://www.2024enrollmentit.kesug.com/admin/display-students"
       );
       setStudents(response.data);
       setFilteredStudents(response.data);
@@ -84,7 +84,7 @@ const StudentsManagement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://studentenroll.duckdns.org/admin/add-student", formData);
+      await axios.post("https://www.2024enrollmentit.kesug.com/admin/add-student", formData);
       setSuccessMessage("Student added successfully");
       setError("");
       setShowForm(false);
@@ -113,7 +113,7 @@ const StudentsManagement = () => {
     if (confirmed) {
       try {
         await axios.delete(
-          `https://studentenroll.duckdns.org/admin/delete-student/${rollNumber}`
+          `https://www.2024enrollmentit.kesug.com/admin/delete-student/${rollNumber}`
         );
         setStudents(students.filter((student) => student.rollNumber !== rollNumber));
       } catch (error) {
@@ -136,7 +136,7 @@ const StudentsManagement = () => {
       formData.append("file", file);
 
       try {
-        await axios.post("https://studentenroll.duckdns.org/admin/upload-excel", formData);
+        await axios.post("https://www.2024enrollmentit.kesug.com/admin/upload-excel", formData);
         fetchStudents();
         setSuccessMessage("File uploaded successfully");
         setError("");
