@@ -22,14 +22,14 @@ const StudentLogin = () => {
 
     try {
       const response = await axios.post(
-        'https://backendlb-878688743.eu-north-1.elb.amazonaws.com/admin/student/login',
+        'https://www.2024enrollmentit.kesug.com/admin/student/login',
         loginData
       );
 
       if (response.status === 200) {
         const { semester: studentSemester } = response.data;
 
-        const statusResponse = await axios.get('https://backendlb-878688743.eu-north-1.elb.amazonaws.com/enrollment/status');
+        const statusResponse = await axios.get('https://www.2024enrollmentit.kesug.com/enrollment/status');
 
         if (statusResponse.status === 200) {
           const { semester: statusSemester } = statusResponse.data;
