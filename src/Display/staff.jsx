@@ -77,7 +77,7 @@ const StaffManagement = () => {
 
   const fetchStaff = async () => {
     try {
-      const response = await axios.get('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/staff/disp-staff');
+      const response = await axios.get('https://www.2024enrollmentit.kesug.com/staff/disp-staff');
       setStaff(response.data);
     } catch (error) {
       console.error('Error fetching staff:', error);
@@ -98,7 +98,7 @@ const StaffManagement = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://backendlb-1761842273.eu-north-1.elb.amazonaws.com/admin/add-staff', formData);
+      const response = await axios.post('https://www.2024enrollmentit.kesug.com/admin/add-staff', formData);
       setSuccessMessage('Staff added successfully');
       setError('');
       setShowForm(false);
